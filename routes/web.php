@@ -2,6 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('redirect3', function (){
+    return redirect()->route('url.name');
+});
+
+Route::get('/name-url', function () {
+    return 'Hey hey hey';
+})->name('url.name');
+
 Route::view('view', 'welcome');
 
 /*

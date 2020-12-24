@@ -1,6 +1,52 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\TesteController;
+use App\Http\Controllers\Admin;
+
+
+Route::group([ // Assim pode ser setado diversos parâmetros de forma mais amigável do que está comentado a seguir
+    'middleware' => [], //definindo uma lista de middlewares
+    'prefix' => 'painel', // definindo o prefixo da rota para o grupo 
+    'namespace' => 'App\Http\Controllers\Admin', // definindo o namespace que será usado para o Controller
+    'name' => ['admin.'], //Definindo o prefixo do nome das rotas do grupo
+], function () {
+    Route::get('dashboard', function () {
+        return 'Home Admin';
+    })->name('dashboard');
+    Route::get('produtos', function () {
+        return 'Home produtos';
+    })->name('produtos');
+    Route::get('financeiro', function () {
+        return 'Home financeiro';
+    })->name('financeiro');
+    Route::get('/', 'TesteController@teste')->name('home');
+});
+
+/*Route::middleware([])->group(function (){ // colocando um middleware na rota, como por exemplo o auth
+    Route::prefix('painel')->group(function () { // adicionando prefixo a URL do grupo
+        Route::namespace('App\Http\Controllers\Admin')->group(function () { // definindo o namespace para usar o controller
+            Route::name('admin.')->group(function () { // adicionando um prefixo ao name da rota
+                Route::get('dashboard', function () {
+                    return 'Home Admin';
+                })->name('dashboard');
+                Route::get('produtos', function () {
+                    return 'Home produtos';
+                })->name('produtos');
+                Route::get('financeiro', function () {
+                    return 'Home financeiro';
+                })->name('financeiro');
+                Route::get('/', 'TesteController@teste')->name('home');
+            });
+        });
+    });
+});*/
+
+Route::get('testecontroller', TesteController::class . '@teste');
+
+Route::get('login', function () {
+    return 'Tela de login';
+})->name('login');
 
 Route::get('redirect3', function (){
     return redirect()->route('url.name');

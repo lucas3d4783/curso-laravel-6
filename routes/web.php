@@ -4,6 +4,30 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\TesteController;
 use App\Http\Controllers\Admin;
 
+Route::group([
+    'middleware' => [], //definindo uma lista de middlewares
+    'namespace' => 'App\Http\Controllers', // definindo o namespace que será usado para o Controller
+],
+function () {
+    Route::resource('produtos', 'ProductController');
+});
+
+/*Route::group([
+    'middleware' => [], //definindo uma lista de middlewares
+    'prefix' => 'produtos', // definindo o prefixo da rota para o grupo 
+    'namespace' => 'App\Http\Controllers', // definindo o namespace que será usado para o Controller
+    'name' => ['product.'], //Definindo o prefixo do nome das rotas do grupo
+],
+function (){
+    Route::get('/criar', 'ProductController@create')->name('create');
+    Route::get('/{id}/editar', 'ProductController@edit')->name('edit');
+    Route::get('/', 'ProductController@index')->name('index');
+    Route::post('/', 'ProductController@store')->name('store');
+    Route::put('/{id}', 'ProductController@update')->name('update');
+    Route::delete('/{id}', 'ProductController@destroy')->name('destroy');
+    Route::get('/{id}', 'ProductController@show')->name('show');
+
+});*/
 
 Route::group([ // Assim pode ser setado diversos parâmetros de forma mais amigável do que está comentado a seguir
     'middleware' => [], //definindo uma lista de middlewares
@@ -75,9 +99,9 @@ Route::get('redirect2', function () {
     return 'Redirect 2';
 });
 
-Route::get('produtos/{idProduct?}', function($idProduct = ''){ //colocando o "?" ele informa que o parâmetro é opcional e definindo um calor default vazio
+/*Route::get('produtos/{idProduct?}', function($idProduct = ''){ //colocando o "?" ele informa que o parâmetro é opcional e definindo um calor default vazio
     return "Produto(s) {$idProduct}";
-});
+});*/   
 
 Route::get('categoria/{flag}/posts', function($flag){
     return "Posts da categoria: {$flag}";

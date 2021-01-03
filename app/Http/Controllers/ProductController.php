@@ -34,6 +34,7 @@ class ProductController extends Controller
         $context['teste2'] = '<h1>teste 2</h1>';
         $context['teste3'] = ['lucas', 'coelho', 'reichert'];
         $context['products'] = ['porta', 'casa', 'mesa', 'fogão'];
+        $context['alert'] = 'Mensagem de alerta';
         return view('admin.pages.products.index', $context);
     }
 

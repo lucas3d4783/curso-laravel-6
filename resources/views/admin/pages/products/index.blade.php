@@ -3,6 +3,19 @@
 @section('title', 'Gestão de Produtos')
 
 @section('content')
+
+@component('admin.components.card')
+    @slot('title')
+        título card definido em um slot
+    @endslot
+
+    Teste de inserção no componente com a variavel slot
+@endcomponent
+
+@include('admin.includes.alerts')
+
+<hr>
+
 <h1>Exibindo os produtos</h1>
 
 {{$teste}}

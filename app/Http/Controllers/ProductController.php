@@ -25,7 +25,7 @@ class ProductController extends Controller
     //     //return 'listagem de produtos';
     // }
     public function index(){
-        $context['teste'] = 'teste';
+        $context['teste'] = '<h1>teste</h1>';
         return view('teste', $context);
     }
 

@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    {{$teste}}
+    {{$teste}} --> dessa forma não processa as tags HTML por questões de segurança
+
+    {!! $teste !!} mas em alguns casos pode ser usada a segunda forma caso seja necessário <!-- Assim ele vai enterpretar as tags HTML, JavaScript, etc. Podendo ser mais  vulnerável, 
+    porém em alguns casos é interessante usar
+    -->
 </body>
 </html>

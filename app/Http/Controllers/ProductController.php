@@ -24,9 +24,14 @@ class ProductController extends Controller
     //     return $products;
     //     //return 'listagem de produtos';
     // }
+    // public function index(){
+    //     $context['teste'] = '<h1>teste</h1>';
+    //     return view('teste', $context);
+    // }
+
     public function index(){
         $context['teste'] = '<h1>teste</h1>';
-        return view('teste', $context);
+        return view('admin.pages.products.index', $context);
     }
 
     public function show($id){

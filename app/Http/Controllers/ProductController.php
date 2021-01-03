@@ -31,6 +31,8 @@ class ProductController extends Controller
 
     public function index(){
         $context['teste'] = '<h1>teste</h1>';
+        $context['teste2'] = '<h1>teste 2</h1>';
+        $context['teste3'] = '';
         return view('admin.pages.products.index', $context);
     }
 

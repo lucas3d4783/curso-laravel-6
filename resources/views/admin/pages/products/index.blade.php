@@ -61,4 +61,27 @@
         Switch Default
         
 @endswitch
+
+@if (isset($products))
+    <h1>Lista de Produtos</h1>
+    @foreach ($products as $product)
+        <p class="@if ($loop->first) last @endif">{{$product}}</p> <!--caso seja o primeiro elemento do loop vai ter um estilo diferente-->
+    @endforeach
+@endif
+
+<hr>
+
+@forelse ($products as $product) <!-- Permite verificar se há elementos no array-->
+    <p class="@if ($loop->last) last @endif">{{$product}}</p> <!--caso seja o último elemento do loop vai ter um estilo diferente-->
+@empty
+    <p>Não há produtos cadastrados</p>
+@endforelse
+
 @endsection
+
+<style>
+    .last{
+        background: #000000;
+        color: snow;
+    }
+</style>
